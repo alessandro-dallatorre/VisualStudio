@@ -86,7 +86,7 @@ namespace SQLiteEncrypted
 
         private static string GenerateConnectionStringSectionWithSeed(Configuration config, string dbFilePath)
         {
-            var keySeed = Convert.ToBase64String(GenerateKeyOrSalt(128));
+            var keySeed = Convert.ToBase64String(GenerateKeyOrSalt(32));
             var connectionStringWithSalt = string.Format("Data Source={0};Password={1}", dbFilePath, keySeed);
             var sqlLiteDbconnection = config.ConnectionStrings.ConnectionStrings["SQLLiteDbconnection"];
             if (sqlLiteDbconnection == null)
